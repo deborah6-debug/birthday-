@@ -1,0 +1,119 @@
+body {
+  background: #f6efe6;
+  font-family: Arial, sans-serif;
+}
+
+.tiktok-memories {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  background: #f6efe6;
+}
+
+/* each memory takes full screen */
+.memory {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  scroll-snap-align: start;
+  background: #f6efe6; /* soft paper vibe */
+}
+
+.memory {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-blur {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: blur(40px);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+/* images & videos full screen style */
+.memory img,
+.memory video {
+  width: 80%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transform: scale(1);
+  transition: transform 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+
+.memory.active video {
+  transform: scale(1.05);
+}
+
+.tiktok-memories::-webkit-scrollbar {
+  display: none;
+}
+
+.tiktok-memories {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes pop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+.memory:nth-child(1) .bg-blur {
+  background: #3e5c76;
+}
+
+.memory:nth-child(2) .bg-blur {
+  background: #8b5e3c;
+}
+
+.memory-end {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f6efe6;
+}
+
+.memory-end p {
+  color: #6b4a2f;
+  font-style: italic;
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+.end-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #8b5e3c;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.end-btn:hover {
+  background: #6b4a2f;
+  transform: translateY(-3px);
+}

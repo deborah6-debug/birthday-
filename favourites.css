@@ -1,0 +1,146 @@
+.favourites {
+  padding: 80px 20px;
+  text-align: center;
+  background: #f6efe6;
+}
+
+.fav-title {
+  color: #6b4a2f;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+.fav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.fav-card {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.fav-card p {
+  font-size: 1.1rem;
+  color: #3e5c76;
+}
+
+/* hover effect */
+.fav-card:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+
+.fav-card span {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: rgba(62, 92, 118, 0.95);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 9999;
+  max-width: 80%;
+  text-align: center;
+}
+
+.popup.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.fav-card {
+  transition: all 0.3s ease;
+}
+
+.fav-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0 20px rgba(62, 92, 118, 0.4);
+}
+
+body.popup-active::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(62,92,118,0.25), transparent 60%);
+  z-index: 998;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.fav-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(62,92,118,0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: rippleAnim 0.6s linear;
+}
+
+@keyframes rippleAnim {
+  to {
+    transform: scale(10);
+    opacity: 0;
+  }
+}
+
+.goodbye-screen {
+  text-align: center;
+  padding: 80px 20px;
+  background: #f6efe6;
+  animation: fadeUp 1s ease;
+}
+
+.goodbye-screen h2 {
+  color: #6b4a2f;
+  margin-bottom: 10px;
+}
+
+.goodbye-screen p {
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.goodbye-screen h3 {
+  color: #8b5e3c;
+  margin: 20px 0;
+}
+
+.restart-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #3e5c76;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  margin-top: 20px;
+  transition: 0.3s ease;
+}
+
+.restart-btn:hover {
+  transform: scale(1.05);
+}
+

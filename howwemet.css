@@ -1,0 +1,141 @@
+/* STORY PAGE */
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 18px;
+  color: rgba(60, 100, 180, 0.6);
+  animation: floatUp 6s linear forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+body {
+  background: #f5f0ea; /* soft warm beige */
+  font-family: Arial, sans-serif;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+}
+
+.story {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* TITLE */
+.story-title {
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #5a3e2b; /* warm brown */
+    overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #5a3e2b;
+  width: fit-content;
+  margin: 0 auto 30px;
+  animation: typing 2.5s steps(20, end), blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+/* CARDS */
+.story-card {
+  background: #fffaf5;
+  border-left: 5px solid #8b5e3c;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 650px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(90, 62, 43, 0.15);
+  transition: all 0.5s ease;
+}
+
+/* HEADINGS */
+.story-card h2 {
+  color: #6b4a2f;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  opacity: 0;
+  transform: translateY(25px);
+  filter: blur(6px);
+  transition: all 0.8s ease;
+}
+
+.story-card.show h2 {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.story-card p {
+  color: #3b2a20;
+  line-height: 1.7;
+}
+/* FADE ANIMATION */
+.fade {
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+}
+
+.story-card.show {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(90, 62, 43, 0.25);
+}
+
+
+/* stagger feel */
+.story-card:nth-child(1) { animation-delay: 0.2s; }
+.story-card:nth-child(2) { animation-delay: 0.4s; }
+.story-card:nth-child(3) { animation-delay: 0.6s; }
+.story-card:nth-child(4) { animation-delay: 0.8s; }
+
+.next-chapter {
+  text-align: center;
+  margin-top: 60px;
+  padding: 30px;
+}
+
+.next-chapter p {
+  color: #6b4a2f;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.next-btn {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #8b5e3c;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: 0.3s ease;
+}
+
+.next-btn:hover {
+  background: #6b4a2f;
+  transform: translateY(-2px);
+}
